@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ĐẠI CÔNG TRƯỜNG TOÁN 12 • Sơ đồ Tư duy & 15 Câu Nghiệm thu Siêu Dễ (Chương 1 - KNTT)</title>
+
+  <!-- Google Fonts: Quicksand, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700;800&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Quicksand', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- KaTeX CSS & Auto-render CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Quicksand', 'Inter', system-ui, sans-serif;
+      background-color: #f8fafc;
+      background-image:
+        linear-gradient(rgba(2, 132, 199, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(2, 132, 199, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(rgba(245, 158, 11, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 158, 11, 0.07) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+
+    /* Soft Neo-Brutalism Cartoon Borders & Shadows */
+    .cartoon-card {
+      border: 3.5px solid #0f172a;
+      box-shadow: 6px 6px 0px #0f172a;
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+    }
+    .cartoon-card-hover:hover {
+      transform: translate(-2px, -3px);
+      box-shadow: 8px 9px 0px #0f172a;
+    }
+    .cartoon-btn {
+      border: 3px solid #0f172a;
+      box-shadow: 4px 4px 0px #0f172a;
+      transition: all 0.14s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .cartoon-btn:hover {
+      transform: translate(-1.5px, -2px);
+      box-shadow: 5.5px 6px 0px #0f172a;
+    }
+    .cartoon-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1.5px 1.5px 0px #0f172a;
+    }
+
+    /* Hazard Stripes (Vạch kẻ an toàn phản quang vàng - đen) */
+    .hazard-bar {
+      background: repeating-linear-gradient(
+        -45deg,
+        #fbbf24,
+        #fbbf24 14px,
+        #0f172a 14px,
+        #0f172a 28px
+      );
+    }
+
+    /* Shake Animation on Wrong Answer */
+    @keyframes cartoonShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px) rotate(-1.2deg); }
+      40% { transform: translateX(8px) rotate(1.2deg); }
+      60% { transform: translateX(-6px) rotate(-0.8deg); }
+      80% { transform: translateX(6px) rotate(0.8deg); }
+    }
+    .animate-shake {
+      animation: cartoonShake 0.42s ease-in-out;
+    }
+
+    /* Happy Vehicle Dance Animation */
+    @keyframes vehicleCelebrate {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      25% { transform: translateY(-8px) rotate(-3deg) scale(1.05); }
+      50% { transform: translateY(0) rotate(3deg) scale(1.02); }
+      75% { transform: translateY(-6px) rotate(-2deg) scale(1.04); }
+    }
+    .vehicle-dance {
+      animation: vehicleCelebrate 0.9s infinite ease-in-out;
+    }
+
+    /* Smooth Collapse for Master Overview Tree */
+    .tree-collapse {
+      transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s ease;
+    }
+    .tree-collapse.closed {
+      max-height: 0 !important;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0 !important;
+      pointer-events: none;
+    }
+
+    /* KaTeX Crisp Rendering */
+    .katex {
+      font-size: 1.07em;
+    }
+    .katex-display {
+      margin: 0.35rem 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.2rem 0;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- Top Hazard Stripe Border -->
+  <div class="h-3 w-full hazard-bar border-b-4 border-slate-900 shrink-0"></div>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER: BAN CHỈ HUY CÔNG TRƯỜNG & THANH XE TẢI CHẠY TIẾN ĐỘ 0-100%   -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-30 bg-amber-300 border-b-4 border-slate-900 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+
+      <!-- Left: Site Title & Hard Hat Badge -->
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 p-1.5 rounded-2xl bg-orange-500 text-white cartoon-btn flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 64 64" class="w-8 h-8">
+              <path d="M10 42 C10 22 22 12 32 12 C42 12 54 22 54 42 Z" fill="#fbbf24" stroke="#0f172a" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M26 12 L26 36 M38 12 L38 36" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+              <rect x="6" y="40" width="52" height="10" rx="5" fill="#f97316" stroke="#0f172a" stroke-width="4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider bg-slate-900 text-amber-300 rounded-full">
+                TOÁN 12 • KẾT NỐI TRI THỨC
+              </span>
+              <span class="px-2.5 py-0.5 text-[11px] font-black uppercase bg-sky-600 text-white rounded-full border-2 border-slate-900">
+                15 CÂU SIÊU DỄ (3 CÂU/BÀI)
+              </span>
+            </div>
+            <h1 class="text-base sm:text-xl font-black text-slate-900 tracking-tight uppercase mt-0.5">
+              🏗️ ĐẠI CÔNG TRƯỜNG TOÁN 12 — CHƯƠNG 1: ỨNG DỤNG ĐẠO HÀM
+            </h1>
+          </div>
+        </div>
+
+        <!-- Mobile Sound Toggle -->
+        <button
+          type="button"
+          onclick="toggleSiteSound()"
+          class="lg:hidden p-2 rounded-2xl bg-white text-slate-900 cartoon-btn"
+          title="Bật/tắt âm thanh"
+          aria-label="Bật/tắt âm thanh"
+        >
+          <i id="sound-icon-mob" data-lucide="volume-2" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Right: Animated Truck Progress Bar (0% -> 100%) & Rank Badge -->
+      <div class="flex flex-wrap items-center justify-between lg:justify-end gap-3 bg-white px-4 py-2.5 rounded-2xl border-4 border-slate-900 shadow-[4px_4px_0px_#0f172a]">
+        <div class="flex items-center gap-3 min-w-[240px] sm:min-w-[310px] flex-1">
+          <div id="engineer-rank-badge" class="w-11 h-11 rounded-2xl bg-amber-300 border-3 border-slate-900 flex items-center justify-center text-2xl shrink-0 shadow-[2px_2px_0px_#0f172a]">
+            👷
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between text-xs font-black uppercase">
+              <span id="engineer-rank-title" class="text-slate-900">Cấp bậc: Thực tập sinh công trường</span>
+              <span id="progress-score-text" class="font-mono text-xs sm:text-sm font-black text-orange-600">0% (0/15)</span>
+            </div>
+
+            <!-- Truck Track Bar -->
+            <div class="relative w-full h-5 bg-slate-200 rounded-full mt-1.5 border-2 border-slate-900 p-0.5 flex items-center">
+              <div
+                id="progress-bar-fill"
+                class="h-full rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-emerald-500 transition-all duration-500"
+                style="width: 0%"
+              ></div>
+              <!-- Moving Truck Indicator -->
+              <div
+                id="moving-truck-indicator"
+                class="absolute top-1/2 -translate-y-1/2 -ml-3 text-base transition-all duration-500 select-none pointer-events-none"
+                style="left: 4%"
+              >
+                🚛
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            onclick="toggleSiteSound()"
+            class="hidden lg:flex p-2 rounded-xl bg-amber-200 hover:bg-amber-300 text-slate-900 cartoon-btn"
+            title="Bật/tắt âm thanh"
+            aria-label="Bật/tắt âm thanh"
+          >
+            <i id="sound-icon-desk" data-lucide="volume-2" class="w-4 h-4"></i>
+          </button>
+          <button
+            type="button"
+            onclick="resetAllProgress()"
+            class="px-3 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs uppercase cartoon-btn flex items-center gap-1"
+            title="Làm mới toàn bộ 15 câu"
+          >
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            <span>Làm mới</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- NAVIGATION PIPELINE: TỔNG QUAN & 5 BÀI XE CÔNG TRÌNH                -->
+    <!-- =================================================================== -->
+    <div class="bg-amber-100 border-t-4 border-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 overflow-x-auto">
+        <nav id="stage-pipeline-nav" class="flex items-center gap-2.5 min-w-max" aria-label="Điều hướng 5 bài học">
+          <!-- Populated dynamically via JS -->
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- CHIEF ENGINEER CELEBRATION BANNER (SHOWN AT 15/15 = 100%)             -->
+  <!-- ===================================================================== -->
+  <div id="chief-engineer-banner" class="hidden max-w-7xl w-full mx-auto px-4 sm:px-6 pt-5">
+    <div class="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-emerald-400 via-amber-300 to-sky-400 cartoon-card flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white border-4 border-slate-900 flex items-center justify-center text-3xl vehicle-dance shrink-0">
+          👑
+        </div>
+        <div>
+          <span class="px-3 py-0.5 rounded-full bg-slate-900 text-amber-300 text-xs font-black uppercase tracking-wider">
+            HOÀN THÀNH 15/15 CÂU NGHIỆM THU (100%)
+          </span>
+          <h2 class="text-lg sm:text-2xl font-black text-slate-900 uppercase mt-1">
+            CHÚC MỪNG THĂNG CẤP: "KỸ SƯ TRƯỞNG TOÁN 12"! 🎉
+          </h2>
+          <p class="text-xs sm:text-sm font-bold text-slate-800">
+            Cả lớp đã nghiệm thu xuất sắc toàn bộ 5 công đoạn Chương 1 Giải tích 12!
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        onclick="fireCelebrationConfetti()"
+        class="px-4 py-2.5 rounded-2xl bg-orange-500 hover:bg-orange-600 text-white font-black text-xs sm:text-sm uppercase cartoon-btn shrink-0"
+      >
+        🎆 Bắn Pháo hoa Chúc mừng!
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT WORKSPACE                                                -->
+  <!-- ===================================================================== -->
+  <main id="app-workspace" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+    <!-- Populated dynamically via JS -->
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="mt-auto bg-slate-900 text-white border-t-4 border-slate-900">
+    <div class="h-2.5 w-full hazard-bar"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-3 text-xs font-bold">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">🚜</span>
+        <span>ĐẠI CÔNG TRƯỜNG TOÁN 12 • SƠ ĐỒ TƯ DUY & 15 CÂU NGHIỆM THU SIÊU DỄ (SGK KẾT NỐI TRI THỨC)</span>
+      </div>
+      <div class="flex items-center gap-3 text-amber-300">
+        <span>[5 LINH VẬT XE SVG NỘI BỘ]</span>
+        <span>•</span>
+        <span>[3 CÂU NHẬN BIẾT / BÀI]</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Box -->
+  <div id="cartoon-toast-box" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ===================================================================== -->
+  <!-- INLINE SVG MASCOTS + DATA + INTERACTIVE GAMIFICATION SCRIPT           -->
+  <!-- ===================================================================== -->
+  <script>
+    /**
+     * 5 LINH VẬT XE CÔNG TRÌNH VẼ BẰNG MÃ SVG NỘI BỘ 100%
+     */
+    function getVehicleSVG(type, extraClass = "w-24 h-24") {
+      switch (type) {
+        // 1. XE MÚC / MÁY ĐÀO (EXCAVATOR) - BÀI 1
+        case "excavator":
+          return `
+            <svg viewBox="0 0 140 110" class="${extraClass}" xmlns="http://www.w3.org/2000/svg">
+              <path d="M78 46 L112 20 L126 42" fill="none" stroke="#f97316" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M78 46 L112 20 L126 42" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M118 40 L135 42 L130 58 L112 52 Z" fill="#fbbf24" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round"/>
+              <rect x="16" y="72" width="76" height="22" rx="11" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="32" cy="83" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="3"/>
+              <circle cx="54" cy="83" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="3"/>
+              <circle cx="76" cy="83" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="3"/>
+              <rect x="22" y="42" width="62" height="30" rx="8" fill="#fbbf24" stroke="#0f172a" stroke-width="4"/>
+              <path d="M30 42 L36 20 L68 20 L74 42 Z" fill="#38bdf8" stroke="#0f172a" stroke-width="4" stroke-linejoin="round"/>
+              <circle cx="48" cy="31" r="3.2" fill="#0f172a"/>
+              <circle cx="60" cy="31" r="3.2" fill="#0f172a"/>
+              <path d="M49 36 Q54 40 59 36" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="48" y="12" width="10" height="8" rx="3" fill="#ef4444" stroke="#0f172a" stroke-width="3"/>
+            </svg>
+          `;
+
+        // 2. XE LU RUNG (STEAMROLLER) - BÀI 2
+        case "steamroller":
+          return `
+            <svg viewBox="0 0 140 110" class="${extraClass}" xmlns="http://www.w3.org/2000/svg">
+              <rect x="18" y="38" width="58" height="32" rx="8" fill="#f97316" stroke="#0f172a" stroke-width="4"/>
+              <rect x="26" y="18" width="38" height="24" rx="6" fill="#bae6fd" stroke="#0f172a" stroke-width="4"/>
+              <path d="M74 52 L106 52 L106 72" fill="none" stroke="#fbbf24" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M74 52 L106 52 L106 72" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="106" cy="74" r="21" fill="#94a3b8" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="106" cy="74" r="8" fill="#fbbf24" stroke="#0f172a" stroke-width="3.5"/>
+              <circle cx="42" cy="76" r="18" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="42" cy="76" r="7" fill="#fbbf24" stroke="#0f172a" stroke-width="3"/>
+              <circle cx="40" cy="29" r="3" fill="#0f172a"/>
+              <circle cx="52" cy="29" r="3" fill="#0f172a"/>
+              <path d="M41 34 Q46 38 51 34" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          `;
+
+        // 3. CẦN CẨU THÁP (TOWER CRANE) - BÀI 3
+        case "crane":
+          return `
+            <svg viewBox="0 0 140 110" class="${extraClass}" xmlns="http://www.w3.org/2000/svg">
+              <rect x="24" y="86" width="44" height="12" rx="4" fill="#f97316" stroke="#0f172a" stroke-width="4"/>
+              <rect x="38" y="18" width="16" height="68" fill="#fbbf24" stroke="#0f172a" stroke-width="4"/>
+              <path d="M38 32 L54 46 M54 32 L38 46 M38 56 L54 70 M54 56 L38 70" stroke="#0f172a" stroke-width="3"/>
+              <rect x="16" y="20" width="106" height="10" rx="4" fill="#fbbf24" stroke="#0f172a" stroke-width="4"/>
+              <path d="M46 10 L114 20 M46 10 L22 20" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+              <rect x="34" y="26" width="26" height="20" rx="5" fill="#38bdf8" stroke="#0f172a" stroke-width="3.5"/>
+              <circle cx="43" cy="35" r="2.6" fill="#0f172a"/>
+              <circle cx="52" cy="35" r="2.6" fill="#0f172a"/>
+              <line x1="102" y1="30" x2="102" y2="62" stroke="#0f172a" stroke-width="3.5" stroke-dasharray="4 3"/>
+              <rect x="92" y="62" width="20" height="14" rx="4" fill="#ef4444" stroke="#0f172a" stroke-width="3.5"/>
+            </svg>
+          `;
+
+        // 4. XE TRỘN BÊ TÔNG (CONCRETE MIXER) - BÀI 4
+        case "mixer":
+          return `
+            <svg viewBox="0 0 140 110" class="${extraClass}" xmlns="http://www.w3.org/2000/svg">
+              <rect x="16" y="66" width="104" height="12" rx="5" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+              <ellipse cx="56" cy="44" rx="34" ry="22" transform="rotate(-12 56 44)" fill="#fbbf24" stroke="#0f172a" stroke-width="4"/>
+              <path d="M38 30 Q56 46 72 58 M52 24 Q68 40 82 50" fill="none" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
+              <path d="M88 34 L112 34 L122 52 L122 68 L88 68 Z" fill="#38bdf8" stroke="#0f172a" stroke-width="4" stroke-linejoin="round"/>
+              <circle cx="101" cy="48" r="3" fill="#0f172a"/>
+              <circle cx="111" cy="48" r="3" fill="#0f172a"/>
+              <path d="M101 54 Q106 58 111 54" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="36" cy="80" r="13" fill="#1e293b" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="36" cy="80" r="5" fill="#fbbf24"/>
+              <circle cx="68" cy="80" r="13" fill="#1e293b" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="68" cy="80" r="5" fill="#fbbf24"/>
+              <circle cx="104" cy="80" r="13" fill="#1e293b" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="104" cy="80" r="5" fill="#fbbf24"/>
+            </svg>
+          `;
+
+        // 5. XE BEN CHỞ ĐẤT (DUMP TRUCK) - BÀI 5
+        case "dumptruck":
+        default:
+          return `
+            <svg viewBox="0 0 140 110" class="${extraClass}" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 36 Q48 14 78 36 Z" fill="#f59e0b" stroke="#0f172a" stroke-width="3.5"/>
+              <polygon points="14,34 84,34 78,66 20,66" fill="#fbbf24" stroke="#0f172a" stroke-width="4" stroke-linejoin="round"/>
+              <line x1="34" y1="38" x2="36" y2="62" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="52" y1="38" x2="52" y2="62" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="70" y1="38" x2="68" y2="62" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M84 38 L112 38 L122 54 L122 68 L84 68 Z" fill="#f97316" stroke="#0f172a" stroke-width="4" stroke-linejoin="round"/>
+              <rect x="92" y="43" width="22" height="13" rx="3" fill="#bae6fd" stroke="#0f172a" stroke-width="3"/>
+              <circle cx="99" cy="49" r="2.5" fill="#0f172a"/>
+              <circle cx="108" cy="49" r="2.5" fill="#0f172a"/>
+              <circle cx="38" cy="78" r="14" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="38" cy="78" r="6" fill="#fbbf24"/>
+              <circle cx="102" cy="78" r="14" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+              <circle cx="102" cy="78" r="6" fill="#fbbf24"/>
+            </svg>
+          `;
+      }
+    }
+
+    /**
+     * DỮ LIỆU ĐẠI CÔNG TRƯỜNG TOÁN 12 (5 BÀI HỌC × 3 THẺ KHỐI + 3 CÂU NHẬN BIẾT SIÊU DỄ = 15 CÂU)
+     */
+    const CARTOON_SITE_DATA = [
+      // =======================================================================
+      // BÀI 1: KHẢO SÁT ĐỘ DỐC & ĐỈNH ĐỒI (XE MÚC / MÁY ĐÀO)
+      // =======================================================================
+      {
+        id: "bai-1",
+        lessonNumber: 1,
+        vehicleType: "excavator",
+        vehicleEmoji: "🚜",
+        vehicleName: "Xe Múc / Máy Đào",
+        shortLabel: "Bài 1: Độ dốc & Đỉnh đồi",
+        title: "Bài 1: Khảo sát Độ dốc & Đỉnh đồi (Đơn điệu & Cực trị)",
+        subtitle: "Đào móng, đo độ dốc lên/xuống (Đơn điệu), tìm đỉnh đồi/đáy hào (Cực trị)",
+        bannerBg: "bg-amber-200",
+        blockCards: [
+          {
+            badge: "THẺ 1 • LÊN DỐC",
+            icon: "🚜",
+            title: "Đạo hàm Dương $\\Rightarrow$ Lên dốc (Đồng biến)",
+            color: "bg-emerald-100",
+            tagBg: "bg-emerald-600 text-white",
+            formula: "$$f'(x) > 0, \\; \\forall x \\in (a; b) \\implies f(x) \\text{ đồng biến } (\\nearrow)$$",
+            tip: "Đạo hàm mang dấu dương $(+)$ thì xe múc leo lên dốc!"
+          },
+          {
+            badge: "THẺ 2 • XUỐNG DỐC",
+            icon: "🚜",
+            title: "Đạo hàm Âm $\\Rightarrow$ Xuống dốc (Nghịch biến)",
+            color: "bg-sky-100",
+            tagBg: "bg-sky-600 text-white",
+            formula: "$$f'(x) < 0, \\; \\forall x \\in (a; b) \\implies f(x) \\text{ nghịch biến } (\\searrow)$$",
+            tip: "Đạo hàm mang dấu âm $(-)$ thì xe múc chạy xuống dốc!"
+          },
+          {
+            badge: "THẺ 3 • ĐỈNH & ĐÁY",
+            icon: "⛰️",
+            title: "$f'(x) = 0$ Đổi dấu $\\Rightarrow$ Đỉnh dốc ($x_{CĐ}$) / Đáy dốc ($x_{CT}$)",
+            color: "bg-amber-100",
+            tagBg: "bg-amber-500 text-slate-950",
+            formula: "$$(+) \\xrightarrow{x_0} (-) \\implies \\text{Đỉnh } x_{CĐ} \\quad \\Big| \\quad (-) \\xrightarrow{x_0} (+) \\implies \\text{Đáy } x_{CT}$$",
+            tip: "Từ lên $(+)$ sang xuống $(-)$ là Đỉnh đồi (Cực đại); từ xuống $(-)$ sang lên $(+)$ là Đáy hào (Cực tiểu)."
+          }
+        ],
+        questions: [
+          {
+            code: "Câu 1.1",
+            question: "Nếu trên khoảng $(a; b)$ ta có đạo hàm $f'(x) > 0$ thì xe múc đang di chuyển thế nào?",
+            options: [
+              "Đi xuống dốc (Nghịch biến)",
+              "Đi lên dốc (Đồng biến)",
+              "Đi ngang bằng phẳng",
+              "Đứng yên không chuyển động"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Đạo hàm $f'(x) > 0$ nghĩa là độ dốc dương, xe múc đi lên dốc (hàm số đồng biến)."
+          },
+          {
+            code: "Câu 1.2",
+            question: "Đạo hàm $f'(x)$ đổi dấu từ DƯƠNG $(+)$ sang ÂM $(-)$ khi qua điểm $x_0$. Điểm $x_0$ được gọi là:",
+            options: [
+              "Điểm cực đại (Đỉnh đồi)",
+              "Điểm cực tiểu (Đáy hào)",
+              "Điểm uốn",
+              "Tâm đối xứng"
+            ],
+            correctIndex: 0,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Đi lên $(+)$ rồi đi xuống $(-)$ tạo thành đỉnh đồi — chính là điểm cực đại $x_{CĐ}$."
+          },
+          {
+            code: "Câu 1.3",
+            question: "Cho hàm số có bảng xét dấu: $f'(x)$ mang dấu âm $(-)$ trên khoảng $(2; 5)$. Khẳng định nào sau đây đúng?",
+            options: [
+              "Hàm số đồng biến trên $(2; 5)$",
+              "Hàm số nghịch biến trên $(2; 5)$",
+              "Hàm số có giá trị lớn nhất bằng 5",
+              "Hàm số không xác định tại $x = 3$"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Trên $(2; 5)$ đạo hàm $f'(x) < 0$ (dấu âm) nên hàm số nghịch biến trên $(2; 5)$."
+          }
+        ]
+      },
+
+      // =======================================================================
+      // BÀI 2: ĐỊNH MỨC TẢI TRỌNG AN TOÀN (XE LU RUNG)
+      // =======================================================================
+      {
+        id: "bai-2",
+        lessonNumber: 2,
+        vehicleType: "steamroller",
+        vehicleEmoji: "🚜",
+        vehicleName: "Xe Lu Rung",
+        shortLabel: "Bài 2: Tải trọng Max - Min",
+        title: "Bài 2: Định mức Tải trọng An toàn (GTLN & GTNN)",
+        subtitle: "Cán phẳng mặt bằng thi công $[a; b]$, xác định điểm móng cao nhất ($M = \\max$) và sâu nhất ($m = \\min$)",
+        bannerBg: "bg-orange-200",
+        blockCards: [
+          {
+            badge: "THẺ 1 • RÀO CHẮN",
+            icon: "🚧",
+            title: "Giới hạn Rào chắn trên Đoạn $[a; b]$",
+            color: "bg-orange-100",
+            tagBg: "bg-orange-500 text-white",
+            formula: "$$\\text{Xét hàm số liên tục } y = f(x) \\text{ trên đoạn } [a; b]$$",
+            tip: "Mọi điểm kiểm tra đều phải nằm trong đoạn rào chắn $[a; b]$."
+          },
+          {
+            badge: "THẺ 2 • TÌM CỌC MỐC",
+            icon: "📍",
+            title: "Tìm các Cọc mốc $f'(x_i) = 0$ trong $(a; b)$",
+            color: "bg-amber-100",
+            tagBg: "bg-amber-500 text-slate-950",
+            formula: "$$\\text{Giải } f'(x_i) = 0 \\text{ để lấy các điểm } x_i \\in (a; b)$$",
+            tip: "Bước đầu tiên luôn là tính đạo hàm $f'(x)$ và tìm nghiệm thuộc $(a; b)$."
+          },
+          {
+            badge: "THẺ 3 • SO SÁNH ĐỘ CAO",
+            icon: "🏆",
+            title: "So sánh $f(a), f(b), f(x_i) \\Rightarrow$ Mốc Cao nhất & Thấp nhất",
+            color: "bg-emerald-100",
+            tagBg: "bg-emerald-600 text-white",
+            formula: "$$M = \\max_{[a;b]} f(x) = \\max\\{f(a), f(b), f(x_i)\\}, \\quad m = \\min_{[a;b]} f(x) = \\min\\{f(a), f(b), f(x_i)\\}$$",
+            tip: "Nhớ lấy chiều cao tung độ $y = f(x)$, tuyệt đối không lấy nhầm hoành độ $x$!"
+          }
+        ],
+        questions: [
+          {
+            code: "Câu 2.1",
+            question: "Trên công trường đoạn $[-2; 3]$, máy đo ghi nhận độ cao lớn nhất tại mốc $M(1; 7)$. Giá trị lớn nhất $\\max_{[-2; 3]} f(x)$ là:",
+            options: [
+              "$1$",
+              "$7$",
+              "$-2$",
+              "$3$"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Nhắc cả lớp: Giá trị lớn nhất là lấy tung độ $y = 7$, không lấy hoành độ $x = 1$!"
+          },
+          {
+            code: "Câu 2.2",
+            question: "Để tìm giá trị lớn nhất và nhỏ nhất của hàm số liên tục trên đoạn $[a; b]$, bước đầu tiên ta cần làm là:",
+            options: [
+              "Vẽ đồ thị hàm số ra giấy",
+              "Tính đạo hàm $f'(x)$ và tìm nghiệm trong khoảng $(a; b)$",
+              "Bấm máy tính tích phân",
+              "Tìm phương trình đường tiệm cận"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Bước 1 luôn là tính đạo hàm $f'(x)$ và tìm các điểm nghiệm trong khoảng $(a; b)$."
+          },
+          {
+            code: "Câu 2.3",
+            question: "Cho hàm số $y = f(x)$ liên tục và đồng biến trên đoạn $[1; 5]$. Giá trị nhỏ nhất $\\min_{[1; 5]} f(x)$ đạt được tại:",
+            options: [
+              "$x = 1$ (tại $f(1)$)",
+              "$x = 5$ (tại $f(5)$)",
+              "$x = 3$",
+              "$x = 0$"
+            ],
+            correctIndex: 0,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Hàm đồng biến (đi lên suốt từ $1$ đến $5$) nên thấp nhất ở ngay đầu trái $x = 1$."
+          }
+        ]
+      },
+
+      // =======================================================================
+      // BÀI 3: DỰNG GIÀN GIÁO TIỆM CẬN (CẦN CẨU THÁP)
+      // =======================================================================
+      {
+        id: "bai-3",
+        lessonNumber: 3,
+        vehicleType: "crane",
+        vehicleEmoji: "🏗️",
+        vehicleName: "Cần Cẩu Tháp",
+        shortLabel: "Bài 3: Giàn giáo Tiệm cận",
+        title: "Bài 3: Dựng Giàn giáo Tiệm cận (TCĐ, TCN & TCX)",
+        subtitle: "Dựng cột tiệm cận đứng cao chọc trời và vươn cánh tay tiệm cận xiên chịu lực",
+        bannerBg: "bg-sky-200",
+        blockCards: [
+          {
+            badge: "THẺ 1 • TƯỜNG CHẮN ĐỨNG",
+            icon: "🧱",
+            title: "Tiệm cận Đứng (TCĐ): $x = x_0$ (Nghiệm mẫu số)",
+            color: "bg-rose-100",
+            tagBg: "bg-rose-600 text-white",
+            formula: "$$y = \\frac{ax+b}{cx+d} \\implies \\text{Cho mẫu } cx + d = 0 \\iff \\text{TCĐ: } x = -\\frac{d}{c}$$",
+            tip: "Tiệm cận đứng $x = x_0$ tìm cực nhanh bằng nghiệm của mẫu số!"
+          },
+          {
+            badge: "THẺ 2 • MÁI CHE NGANG",
+            icon: "➖",
+            title: "Tiệm cận Ngang (TCN): $y = y_0$ ($\\lim_{x \\to \\pm\\infty}$)",
+            color: "bg-sky-100",
+            tagBg: "bg-sky-600 text-white",
+            formula: "$$y = \\frac{ax+b}{cx+d} \\implies \\lim_{x \\to \\pm\\infty} y = \\frac{a}{c} \\iff \\text{TCN: } y = \\frac{a}{c}$$",
+            tip: "Lấy hệ số của $x$ trên tử chia cho hệ số của $x$ dưới mẫu: $y = \\frac{a}{c}$."
+          },
+          {
+            badge: "THẺ 3 • DẦM NGHIÊNG CHỊU LỰC",
+            icon: "📐",
+            title: "Tiệm cận Xiên (TCX): $y = ax + b \\; (a \\neq 0)$",
+            color: "bg-amber-100",
+            tagBg: "bg-amber-500 text-slate-950",
+            formula: "$$a = \\lim_{x \\to \\pm\\infty} \\frac{f(x)}{x} \\neq 0, \\quad b = \\lim_{x \\to \\pm\\infty} [f(x) - ax]$$",
+            tip: "Điều kiện bắt buộc để đường thẳng $y = ax + b$ là tiệm cận xiên là hệ số góc $a \\neq 0$!"
+          }
+        ],
+        questions: [
+          {
+            code: "Câu 3.1",
+            question: "Đường tiệm cận đứng của công trình $y = \\frac{3x + 1}{x - 2}$ là đường thẳng:",
+            options: [
+              "$y = 3$",
+              "$x = 2$",
+              "$x = -2$",
+              "$y = -2$"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Cho mẫu số bằng $0$: $x - 2 = 0 \\Leftrightarrow x = 2$ là tiệm cận đứng."
+          },
+          {
+            code: "Câu 3.2",
+            question: "Đường tiệm cận ngang của công trình $y = \\frac{4x - 5}{2x + 1}$ là đường thẳng:",
+            options: [
+              "$x = -\\frac{1}{2}$",
+              "$y = 2$",
+              "$y = 4$",
+              "$y = -5$"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Lấy tỉ số hai hệ số của $x$: $y = \\frac{4}{2} = 2$ là tiệm cận ngang."
+          },
+          {
+            code: "Câu 3.3",
+            question: "Đường dầm nghiêng (tiệm cận xiên) $y = ax + b$ của đồ thị hàm số bắt buộc phải thỏa mãn điều kiện nào?",
+            options: [
+              "Hệ số góc $a \\neq 0$",
+              "Hệ số $b = 0$",
+              "Hàm số phải luôn đồng biến",
+              "Đồ thị không được cắt trục tung"
+            ],
+            correctIndex: 0,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Tiệm cận xiên bắt buộc phải nghiêng nên hệ số góc $a \\neq 0$ (nếu $a = 0$ thì thành tiệm cận ngang)."
+          }
+        ]
+      },
+
+      // =======================================================================
+      // BÀI 4: ĐỔ BÊ TÔNG BẢN VẼ KẾT CẤU (XE TRỘN BÊ TÔNG)
+      // =======================================================================
+      {
+        id: "bai-4",
+        lessonNumber: 4,
+        vehicleType: "mixer",
+        vehicleEmoji: "🚚",
+        vehicleName: "Xe Trộn Bê Tông",
+        shortLabel: "Bài 4: Bản vẽ Kết cấu",
+        title: "Bài 4: Đổ Bê tông Bản vẽ Kết cấu (Khảo sát Đồ thị)",
+        subtitle: "Phối trộn các yếu tố để đúc vòm cầu bậc 3 và vòm hyperbol bậc 2/bậc 1; đổ trụ đối xứng trung tâm $I$",
+        bannerBg: "bg-emerald-200",
+        blockCards: [
+          {
+            badge: "THẺ 1 • VÒM CẦU BẬC 3",
+            icon: "🌉",
+            title: "Khảo sát Vòm Bậc 3 (Trụ đối xứng là Điểm uốn $I$)",
+            color: "bg-amber-100",
+            tagBg: "bg-amber-500 text-slate-950",
+            formula: "$$y = ax^3+bx^2+cx+d: \\quad \\text{Nhánh phải } \\nearrow \\iff a > 0; \\quad \\text{Điểm uốn } I\\left(-\\frac{b}{3a}; y_0\\right)$$",
+            tip: "Điểm uốn $I$ (nghiệm của $y'' = 0$) luôn là tâm đối xứng của đồ thị hàm bậc ba."
+          },
+          {
+            badge: "THẺ 2 • VÒM HYPERBOL BẬC 1/1",
+            icon: "🔄",
+            title: "Vòm Phân thức Bậc 1/1 (Giao điểm TCĐ & TCN)",
+            color: "bg-sky-100",
+            tagBg: "bg-sky-600 text-white",
+            formula: "$$y = \\frac{ax+b}{cx+d} \\implies \\text{Tâm đối xứng } I\\left(-\\frac{d}{c}; \\frac{a}{c}\\right) = \\text{TCĐ} \\cap \\text{TCN}$$",
+            tip: "Giao điểm của đường tiệm cận đứng và tiệm cận ngang là tâm đối xứng $I$."
+          },
+          {
+            badge: "THẺ 3 • VÒM PHÂN THỨC BẬC 2/1",
+            icon: "🏗️",
+            title: "Vòm Phân thức Bậc 2/1 (Giao điểm TCĐ & TCX)",
+            color: "bg-emerald-100",
+            tagBg: "bg-emerald-600 text-white",
+            formula: "$$y = \\frac{ax^2+bx+c}{px+q} \\implies \\text{Tâm đối xứng } I = \\text{TCĐ} \\cap \\text{TCX}$$",
+            tip: "Giao điểm của tiệm cận đứng và tiệm cận xiên là tâm đối xứng $I$ của đồ thị."
+          }
+        ],
+        questions: [
+          {
+            code: "Câu 4.1",
+            question: "Nhánh bên phải ngoài cùng của đồ thị hàm bậc ba $y = ax^3 + bx^2 + cx + d$ đi lên ($x \\to +\\infty$ thì $y \\to +\\infty$). Khi đó dấu của hệ số $a$ là:",
+            options: [
+              "$a > 0$",
+              "$a < 0$",
+              "$a = 0$",
+              "$a = 1$"
+            ],
+            correctIndex: 0,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Nhánh ngoài cùng bên phải đi lên ($+\\infty$) thì hệ số $a > 0$."
+          },
+          {
+            code: "Câu 4.2",
+            question: "Tâm đối xứng của đồ thị hàm số bậc ba luôn là điểm nào sau đây?",
+            options: [
+              "Điểm cực đại",
+              "Điểm cực tiểu",
+              "Điểm uốn $I$ (nghiệm của phương trình $y'' = 0$)",
+              "Giao điểm với trục hoành"
+            ],
+            correctIndex: 2,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Tâm đối xứng của đồ thị hàm bậc ba luôn là điểm uốn $I$ với $y''(x_0) = 0$."
+          },
+          {
+            code: "Câu 4.3",
+            question: "Đồ thị hàm số phân thức bậc hai trên bậc nhất $y = \\frac{ax^2+bx+c}{px+q}$ nhận điểm nào làm tâm đối xứng?",
+            options: [
+              "Gốc tọa độ $O(0; 0)$",
+              "Giao điểm của tiệm cận đứng và tiệm cận xiên",
+              "Điểm cực đại của đồ thị",
+              "Trung điểm đoạn nối 2 trục tọa độ"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Tâm đối xứng của đồ thị hàm bậc 2/bậc 1 là giao điểm của tiệm cận đứng và tiệm cận xiên."
+          }
+        ]
+      },
+
+      // =======================================================================
+      // BÀI 5: DỰ TOÁN CÔNG TRÌNH & TỐI ƯU VẬT LIỆU (XE BEN CHỞ ĐẤT)
+      // =======================================================================
+      {
+        id: "bai-5",
+        lessonNumber: 5,
+        vehicleType: "dumptruck",
+        vehicleEmoji: "🚛",
+        vehicleName: "Xe Ben Chở Đất",
+        shortLabel: "Bài 5: Dự toán Thực tế",
+        title: "Bài 5: Dự toán Công trình & Tối ưu Vật liệu (Ứng dụng Thực tế)",
+        subtitle: "Chở vật tư tối ưu thùng chứa, tính vận tốc tức thời khi xe chạy và tính toán chi phí công trình",
+        bannerBg: "bg-yellow-200",
+        blockCards: [
+          {
+            badge: "THẺ 1 • VẬN TỐC XE CHẠY",
+            icon: "🚛",
+            title: "Vận tốc Tức thời $v(t) = s'(t)$",
+            color: "bg-sky-100",
+            tagBg: "bg-sky-600 text-white",
+            formula: "$$v(t) = s'(t) \\quad (\\text{Đạo hàm cấp 1 của quãng đường } s(t))$$",
+            tip: "Muốn tìm vận tốc tức thời tại thời điểm $t$, chỉ cần lấy đạo hàm của quãng đường $s'(t)$."
+          },
+          {
+            badge: "THẺ 2 • ĐỘ TĂNG TỐC",
+            icon: "⚡",
+            title: "Gia tốc Tức thời $a(t) = v'(t) = s''(t)$",
+            color: "bg-amber-100",
+            tagBg: "bg-amber-500 text-slate-950",
+            formula: "$$a(t) = v'(t) = s''(t) \\quad (\\text{Đạo hàm của vận tốc})$$",
+            tip: "Đạo hàm của vận tốc $v'(t)$ (hay đạo hàm cấp 2 của quãng đường) chính là gia tốc $a(t)$."
+          },
+          {
+            badge: "THẺ 3 • TỐI ƯU VẬT TƯ & LỢI NHUẬN",
+            icon: "💰",
+            title: "Tối ưu Hộp chứa $V_{\\max}$ & Lợi nhuận Tối đa $P'(x) = 0$",
+            color: "bg-emerald-100",
+            tagBg: "bg-emerald-600 text-white",
+            formula: "$$V'(x_0) = 0 \\implies V_{\\max} \\quad \\Big| \\quad P'(x_0) = 0 \\implies \\text{Lợi nhuận } P(x) \\text{ cực đại}$$",
+            tip: "Tại điểm đạt thể tích lớn nhất hoặc lợi nhuận lớn nhất, đạo hàm tại điểm đó bằng $0$."
+          }
+        ],
+        questions: [
+          {
+            code: "Câu 5.1",
+            question: "Một xe ben chuyển động thẳng có phương trình quãng đường $s(t)$. Vận tốc tức thời $v(t)$ của xe được tính bằng:",
+            options: [
+              "$v(t) = s'(t)$ (Đạo hàm cấp 1)",
+              "$v(t) = s''(t)$",
+              "$v(t) = \\frac{s(t)}{t}$",
+              "$v(t) = [s(t)]^2$"
+            ],
+            correctIndex: 0,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Vận tốc tức thời bằng đạo hàm cấp 1 của quãng đường: $v(t) = s'(t)$."
+          },
+          {
+            code: "Câu 5.2",
+            question: "Gia tốc tức thời $a(t)$ của chuyển động là đạo hàm của đại lượng nào?",
+            options: [
+              "Đạo hàm của quãng đường $s'(t)$",
+              "Đạo hàm của vận tốc $v'(t)$ (hay đạo hàm cấp 2 của quãng đường $s''(t)$)",
+              "Tích của vận tốc và thời gian",
+              "Vận tốc chia cho quãng đường"
+            ],
+            correctIndex: 1,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Gia tốc tức thời là đạo hàm của vận tốc: $a(t) = v'(t) = s''(t)$."
+          },
+          {
+            code: "Câu 5.3",
+            question: "Trong kinh tế xây dựng, khi hàm lợi nhuận $P(x)$ đạt giá trị lớn nhất tại điểm $x_0$ thì đạo hàm lợi nhuận biên tại đó bằng bao nhiêu?",
+            options: [
+              "$P'(x_0) = 0$",
+              "$P'(x_0) > 0$",
+              "$P'(x_0) = 1$",
+              "$P'(x_0) < 0$"
+            ],
+            correctIndex: 0,
+            explanation: "Nghiệm thu đạt chuẩn kỹ sư! Khi hàm lợi nhuận đạt cực đại tại $x_0$ thì đạo hàm tại đó bằng $0$: $P'(x_0) = 0$."
+          }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // STATE MANAGEMENT
+    // =========================================================================
+    const APP_STATE = {
+      activeTab: "overview", // 'overview' | 'bai-1'..'bai-5'
+      soundOn: true,
+      openBranches: {
+        "bai-1": true,
+        "bai-2": true,
+        "bai-3": true,
+        "bai-4": true,
+        "bai-5": true
+      },
+      quizAnswers: {} // key: `${lessonId}-q${qIdx}` -> selectedOptionIndex
+    };
+
+    function loadSaved(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw !== null ? JSON.parse(raw) : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function saveState(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        // Ignore storage error in sandboxed iframe
+      }
+    }
+
+    function initAppState() {
+      APP_STATE.soundOn = Boolean(loadSaved("cartoon_math12_v2_sound", true));
+      const savedQuiz = loadSaved("cartoon_math12_v2_quiz", {});
+      if (savedQuiz && typeof savedQuiz === "object") {
+        APP_STATE.quizAnswers = savedQuiz;
+      }
+      syncSoundIcons();
+    }
+
+    // =========================================================================
+    // KATEX & LUCIDE HELPERS
+    // =========================================================================
+    function renderMathFormulas(el) {
+      const target = el || document.getElementById("app-workspace");
+      if (!target || typeof renderMathInElement !== "function") return;
+      try {
+        renderMathInElement(target, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+        });
+      } catch (e) {
+        console.warn("KaTeX render warning:", e);
+      }
+    }
+
+    function refreshLucide() {
+      if (typeof lucide !== "undefined" && lucide.createIcons) {
+        lucide.createIcons();
+      }
+    }
+
+    // =========================================================================
+    // GAMIFICATION SOUND EFFECTS (WEB AUDIO API) & CONFETTI
+    // =========================================================================
+    let audioCtx = null;
+    function playCartoonSound(type) {
+      if (!APP_STATE.soundOn) return;
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        if (!audioCtx) audioCtx = new AudioContextClass();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+
+        const now = audioCtx.currentTime;
+
+        if (type === "correct") {
+          // Happy "Ting-Ting!" chime
+          const notes = [587.33, 880, 1174.66]; // D5, A5, D6
+          notes.forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(freq, now + i * 0.085);
+            gain.gain.setValueAtTime(0.18, now + i * 0.085);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.085 + 0.26);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.085);
+            osc.stop(now + i * 0.085 + 0.26);
+          });
+        } else if (type === "wrong") {
+          // Truck horn "Tit-Tit" alert
+          [0, 0.14].forEach((offset) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = "triangle";
+            osc.frequency.setValueAtTime(220, now + offset);
+            osc.frequency.linearRampToValueAtTime(175, now + offset + 0.1);
+            gain.gain.setValueAtTime(0.16, now + offset);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.11);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + offset);
+            osc.stop(now + offset + 0.11);
+          });
+        }
+      } catch (e) {
+        // Ignore audio restrictions
+      }
+    }
+
+    function fireCelebrationConfetti() {
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 85,
+          spread: 75,
+          origin: { y: 0.65 },
+          colors: ["#fbbf24", "#f97316", "#10b981", "#0284c7", "#ec4899"]
+        });
+      }
+    }
+
+    function showCartoonToast(text, bgClass = "bg-amber-400 text-slate-950") {
+      const box = document.getElementById("cartoon-toast-box");
+      if (!box) return;
+      const div = document.createElement("div");
+      div.className = `pointer-events-auto px-4 py-3 rounded-2xl font-extrabold text-xs sm:text-sm cartoon-btn ${bgClass}`;
+      div.textContent = text;
+      box.appendChild(div);
+      setTimeout(() => {
+        div.style.opacity = "0";
+        div.style.transform = "translateY(8px)";
+        setTimeout(() => div.remove(), 250);
+      }, 2400);
+    }
+
+    function toggleSiteSound() {
+      APP_STATE.soundOn = !APP_STATE.soundOn;
+      saveState("cartoon_math12_v2_sound", APP_STATE.soundOn);
+      syncSoundIcons();
+      showCartoonToast(
+        APP_STATE.soundOn ? "🔊 Đã bật chuông & còi xe công trình!" : "🔇 Đã tắt âm thanh!"
+      );
+    }
+
+    function syncSoundIcons() {
+      const name = APP_STATE.soundOn ? "volume-2" : "volume-x";
+      const d = document.getElementById("sound-icon-desk");
+      const m = document.getElementById("sound-icon-mob");
+      if (d) d.setAttribute("data-lucide", name);
+      if (m) m.setAttribute("data-lucide", name);
+      refreshLucide();
+    }
+
+    function resetAllProgress() {
+      APP_STATE.quizAnswers = {};
+      saveState("cartoon_math12_v2_quiz", {});
+      renderApp();
+      showCartoonToast("🔄 Đã làm mới toàn bộ 15 câu nghiệm thu công trường!");
+    }
+
+    function resetStageQuestions(lessonId) {
+      const stage = CARTOON_SITE_DATA.find((s) => s.id === lessonId);
+      if (!stage) return;
+      stage.questions.forEach((_, idx) => {
+        delete APP_STATE.quizAnswers[`${lessonId}-q${idx}`];
+      });
+      saveState("cartoon_math12_v2_quiz", APP_STATE.quizAnswers);
+      renderApp();
+      showCartoonToast(`🔄 Đã làm mới 3 câu hỏi ${stage.shortLabel}!`);
+    }
+
+    // =========================================================================
+    // PROGRESS & RANK CALCULATION (0/15 -> 15/15 = 100%)
+    // =========================================================================
+    function getLessonStats(stage) {
+      let correct = 0;
+      let answered = 0;
+      const total = stage.questions.length;
+      stage.questions.forEach((q, qIdx) => {
+        const chosen = APP_STATE.quizAnswers[`${stage.id}-q${qIdx}`];
+        if (chosen !== undefined) {
+          answered++;
+          if (chosen === q.correctIndex) correct++;
+        }
+      });
+      return { correct, answered, total };
+    }
+
+    function getGlobalStats() {
+      let totalCorrect = 0;
+      let totalQuestions = 0;
+      CARTOON_SITE_DATA.forEach((st) => {
+        const s = getLessonStats(st);
+        totalCorrect += s.correct;
+        totalQuestions += s.total;
+      });
+      return { totalCorrect, totalQuestions };
+    }
+
+    function getEngineerRankInfo(correctCount) {
+      if (correctCount >= 15) {
+        return { title: "Kỹ sư trưởng Toán 12", icon: "👑" };
+      }
+      if (correctCount >= 12) {
+        return { title: "Chỉ huy trưởng Công trình", icon: "🎖️" };
+      }
+      if (correctCount >= 7) {
+        return { title: "Kỹ sư Giám sát", icon: "🏗️" };
+      }
+      if (correctCount >= 3) {
+        return { title: "Đội trưởng Thi công", icon: "🚜" };
+      }
+      return { title: "Thực tập sinh công trường", icon: "👷" };
+    }
+
+    function updateProgressHeader() {
+      const { totalCorrect, totalQuestions } = getGlobalStats();
+      const pct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+      const rank = getEngineerRankInfo(totalCorrect);
+
+      const scoreText = document.getElementById("progress-score-text");
+      const barFill = document.getElementById("progress-bar-fill");
+      const truckEl = document.getElementById("moving-truck-indicator");
+      const rankTitle = document.getElementById("engineer-rank-title");
+      const rankBadge = document.getElementById("engineer-rank-badge");
+      const banner = document.getElementById("chief-engineer-banner");
+
+      if (scoreText) scoreText.textContent = `${pct}% (${totalCorrect}/${totalQuestions})`;
+      if (barFill) barFill.style.width = `${pct}%`;
+      if (truckEl) truckEl.style.left = `${Math.min(94, Math.max(4, pct))}%`;
+      if (rankTitle) rankTitle.textContent = `Cấp bậc: ${rank.title}`;
+      if (rankBadge) rankBadge.textContent = rank.icon;
+
+      if (totalCorrect === totalQuestions) {
+        if (banner) banner.classList.remove("hidden");
+      } else {
+        if (banner) banner.classList.add("hidden");
+      }
+    }
+
+    // =========================================================================
+    // PIPELINE NAVIGATION BAR
+    // =========================================================================
+    function renderPipelineNav() {
+      const nav = document.getElementById("stage-pipeline-nav");
+      if (!nav) return;
+
+      const isOverview = APP_STATE.activeTab === "overview";
+
+      const overviewBtn = `
+        <button
+          type="button"
+          onclick="switchView('overview')"
+          class="px-4 py-2 rounded-2xl font-extrabold text-xs sm:text-sm uppercase cartoon-btn flex items-center gap-2 ${
+            isOverview
+              ? "bg-orange-500 text-white"
+              : "bg-white text-slate-900 hover:bg-amber-200"
+          }"
+        >
+          <span>🗺️ [Toàn cảnh Công trường]</span>
+        </button>
+      `;
+
+      const stageButtons = CARTOON_SITE_DATA.map((st) => {
+        const isActive = APP_STATE.activeTab === st.id;
+        const stats = getLessonStats(st);
+        const isDone = stats.correct === stats.total;
+
+        const badgeHTML = isDone
+          ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-black bg-emerald-500 text-white border-2 border-slate-900">✓ ${stats.correct}/${stats.total}</span>`
+          : `<span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-amber-200 text-slate-900 border-2 border-slate-900">${stats.correct}/${stats.total}</span>`;
+
+        return `
+          <button
+            type="button"
+            onclick="switchView('${st.id}')"
+            class="px-3.5 py-2 rounded-2xl font-extrabold text-xs sm:text-sm cartoon-btn flex items-center gap-2 ${
+              isActive
+                ? "bg-sky-500 text-white"
+                : isDone
+                ? "bg-emerald-100 text-slate-900 hover:bg-emerald-200"
+                : "bg-white text-slate-900 hover:bg-amber-200"
+            }"
+          >
+            <span>${st.vehicleEmoji} ${st.shortLabel}</span>
+            ${badgeHTML}
+          </button>
+        `;
+      }).join("");
+
+      nav.innerHTML = overviewBtn + stageButtons;
+      updateProgressHeader();
+    }
+
+    function switchView(tabId) {
+      APP_STATE.activeTab = tabId;
+      renderApp();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // =========================================================================
+    // VIEW 1: MASTER OVERVIEW (BẢN ĐỒ TƯ DUY ĐẠI CÔNG TRƯỜNG 5 XE)
+    // =========================================================================
+    function renderOverviewScreen() {
+      const vehicleFleetHTML = CARTOON_SITE_DATA.map((st) => {
+        const stats = getLessonStats(st);
+        const isDone = stats.correct === stats.total;
+        return `
+          <div
+            onclick="switchView('${st.id}')"
+            class="cursor-pointer p-4 rounded-3xl ${st.bannerBg} cartoon-card cartoon-card-hover flex flex-col justify-between gap-3 relative"
+          >
+            <div class="flex items-center justify-between gap-1">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black bg-slate-900 text-amber-300 uppercase">
+                BÀI ${st.lessonNumber}
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black border-2 border-slate-900 ${
+                isDone ? "bg-emerald-500 text-white" : "bg-white text-slate-800"
+              }">
+                ${isDone ? "✓ ĐẠT 3/3" : `ĐẠT ${stats.correct}/${stats.total}`}
+              </span>
+            </div>
+
+            <div class="flex items-center justify-center py-1 ${isDone ? "vehicle-dance" : ""}">
+              ${getVehicleSVG(st.vehicleType, "w-28 h-24")}
+            </div>
+
+            <div class="text-center">
+              <div class="text-xs font-extrabold uppercase text-orange-700">${st.vehicleEmoji} ${st.vehicleName}</div>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug mt-0.5">
+                ${st.shortLabel}
+              </h3>
+            </div>
+
+            <div class="w-full py-2 px-3 rounded-xl bg-white border-2 border-slate-900 text-center font-extrabold text-xs text-slate-900">
+              Vào Thi công (3 câu) →
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      const mindmapTreeHTML = CARTOON_SITE_DATA.map((st) => {
+        const isOpen = APP_STATE.openBranches[st.id] !== false;
+        const stats = getLessonStats(st);
+        const isDone = stats.correct === stats.total;
+
+        const cardsMiniHTML = st.blockCards
+          .map(
+            (c) => `
+            <div class="p-3.5 rounded-2xl ${c.color} border-3 border-slate-900 shadow-[3px_3px_0px_#0f172a] space-y-1.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-black uppercase ${c.tagBg} border border-slate-900">
+                  ${c.badge}
+                </span>
+                <span class="text-lg">${c.icon}</span>
+              </div>
+              <div class="font-black text-sm text-slate-900">${c.title}</div>
+              <div class="px-3 py-1.5 rounded-xl bg-white border-2 border-slate-900 text-xs sm:text-sm overflow-x-auto">
+                ${c.formula}
+              </div>
+            </div>
+          `
+          )
+          .join("");
+
+        return `
+          <div class="rounded-3xl bg-white cartoon-card overflow-hidden">
+            <div class="p-4 ${st.bannerBg} border-b-4 border-slate-900 flex flex-wrap items-center justify-between gap-3">
+              <div
+                onclick="toggleBranch('${st.id}')"
+                class="flex items-center gap-3 cursor-pointer select-none flex-1 min-w-[240px]"
+              >
+                <div class="w-14 h-12 rounded-2xl bg-white border-3 border-slate-900 flex items-center justify-center shrink-0 p-1">
+                  ${getVehicleSVG(st.vehicleType, "w-12 h-10")}
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black bg-slate-900 text-amber-300 uppercase">
+                      ${st.vehicleEmoji} ${st.vehicleName}
+                    </span>
+                    <span class="px-2 py-0.5 rounded-full text-[11px] font-black border border-slate-900 ${
+                      isDone ? "bg-emerald-500 text-white" : "bg-white text-slate-800"
+                    }">
+                      Nghiệm thu: ${stats.correct}/${stats.total} câu
+                    </span>
+                  </div>
+                  <h4 class="text-base sm:text-lg font-black text-slate-900 mt-0.5">
+                    ${st.title}
+                  </h4>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="toggleBranch('${st.id}')"
+                  class="px-3 py-1.5 rounded-xl bg-white text-slate-900 font-extrabold text-xs cartoon-btn flex items-center gap-1"
+                >
+                  <span>${isOpen ? "Thu gọn" : "Mở nhánh"}</span>
+                  <i data-lucide="${isOpen ? "chevron-up" : "chevron-down"}" class="w-4 h-4"></i>
+                </button>
+                <button
+                  type="button"
+                  onclick="switchView('${st.id}')"
+                  class="px-3.5 py-1.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-xs cartoon-btn"
+                >
+                  Làm 3 Câu Nghiệm thu →
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="branch-body-${st.id}"
+              class="tree-collapse p-4 bg-amber-50/40 ${isOpen ? "" : "closed"}"
+              style="max-height: 1200px;"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                ${cardsMiniHTML}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <div class="space-y-7">
+          <section class="space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="px-3 py-1 rounded-full bg-orange-500 text-white font-black text-xs uppercase border-2 border-slate-900">
+                  5 ĐỘI XE CÔNG TRÌNH TOÁN 12
+                </span>
+                <h2 class="text-lg sm:text-xl font-black text-slate-900 uppercase">
+                  Chọn 1 trong 5 Xe Công trình để Xem Sơ đồ & Trả lời 3 Câu Siêu Dễ!
+                </h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="setAllBranches(true)"
+                  class="px-3 py-1.5 rounded-xl bg-sky-400 text-slate-950 font-extrabold text-xs cartoon-btn"
+                >
+                  Mở hết Sơ đồ
+                </button>
+                <button
+                  type="button"
+                  onclick="setAllBranches(false)"
+                  class="px-3 py-1.5 rounded-xl bg-white text-slate-900 font-extrabold text-xs cartoon-btn"
+                >
+                  Thu gọn hết
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              ${vehicleFleetHTML}
+            </div>
+          </section>
+
+          <section class="space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🗺️</span>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 uppercase">
+                Sơ đồ Tư duy Rút gọn Toàn Chương 1 (3 Thẻ Trọng tâm / Bài)
+              </h3>
+            </div>
+            <div class="space-y-4">
+              ${mindmapTreeHTML}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function toggleBranch(stageId) {
+      APP_STATE.openBranches[stageId] = !APP_STATE.openBranches[stageId];
+      renderApp();
+    }
+
+    function setAllBranches(open) {
+      CARTOON_SITE_DATA.forEach((st) => {
+        APP_STATE.openBranches[st.id] = open;
+      });
+      renderApp();
+    }
+
+    // =========================================================================
+    // VIEW 2: LESSON SCREEN (3 BLOCK CARDS + 3 ULTRA-EASY QUESTIONS)
+    // =========================================================================
+    function renderStageScreen(stage) {
+      const stats = getLessonStats(stage);
+      const isAllPassed = stats.correct === stage.questions.length;
+
+      // Area A: 3 Block Cards
+      const blockCardsHTML = stage.blockCards
+        .map(
+          (card) => `
+          <div class="p-5 rounded-3xl ${card.color} cartoon-card cartoon-card-hover flex flex-col justify-between gap-3">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-black uppercase ${card.tagBg} border-2 border-slate-900">
+                  ${card.badge}
+                </span>
+                <span class="text-2xl">${card.icon}</span>
+              </div>
+
+              <h4 class="text-base sm:text-lg font-black text-slate-900">
+                ${card.title}
+              </h4>
+
+              <div class="p-3.5 rounded-2xl bg-white border-3 border-slate-900 shadow-[3px_3px_0px_#0f172a] overflow-x-auto text-sm sm:text-base">
+                ${card.formula}
+              </div>
+            </div>
+
+            <div class="pt-2 border-t-2 border-dashed border-slate-900/30 flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800">
+              <span>💡</span>
+              <span>${card.tip}</span>
+            </div>
+          </div>
+        `
+        )
+        .join("");
+
+      // Area B: 3 Ultra-Easy Recognition Questions (Yellow, Sky Blue, Green, Orange buttons)
+      const optionColors = [
+        "bg-amber-300 hover:bg-amber-400 text-slate-950",
+        "bg-sky-300 hover:bg-sky-400 text-slate-950",
+        "bg-emerald-300 hover:bg-emerald-400 text-slate-950",
+        "bg-orange-300 hover:bg-orange-400 text-slate-950"
+      ];
+      const letters = ["A", "B", "C", "D"];
+
+      const questionsListHTML = stage.questions
+        .map((qObj, qIdx) => {
+          const answerKey = `${stage.id}-q${qIdx}`;
+          const chosenIdx = APP_STATE.quizAnswers[answerKey];
+          const isAnswered = chosenIdx !== undefined;
+          const isPassed = isAnswered && chosenIdx === qObj.correctIndex;
+
+          const optionsHTML = qObj.options
+            .map((optText, optIdx) => {
+              let btnAppearance = optionColors[optIdx];
+              let rightStatusHTML = "";
+
+              if (isAnswered) {
+                if (optIdx === qObj.correctIndex) {
+                  btnAppearance = "bg-emerald-400 text-slate-950 ring-4 ring-emerald-600";
+                  rightStatusHTML = `<span class="px-2.5 py-1 rounded-full bg-slate-900 text-emerald-300 text-xs font-black uppercase shrink-0">✓ ĐÁP ÁN ĐÚNG</span>`;
+                } else if (optIdx === chosenIdx && chosenIdx !== qObj.correctIndex) {
+                  btnAppearance = "bg-rose-400 text-white opacity-95";
+                  rightStatusHTML = `<span class="px-2.5 py-1 rounded-full bg-slate-900 text-rose-300 text-xs font-black uppercase shrink-0">✗ CHƯA ĐÚNG</span>`;
+                } else {
+                  btnAppearance = "bg-slate-200 text-slate-500 opacity-60";
+                }
+              }
+
+              return `
+                <button
+                  type="button"
+                  onclick="handleAnswerQuestion('${stage.id}', ${qIdx}, ${optIdx})"
+                  class="w-full text-left p-4 rounded-2xl cartoon-btn flex items-center justify-between gap-3 ${btnAppearance}"
+                >
+                  <div class="flex items-center gap-3 min-w-0">
+                    <span class="w-9 h-9 rounded-xl bg-white border-3 border-slate-900 font-mono text-sm sm:text-base font-black text-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_#0f172a]">
+                      ${letters[optIdx]}
+                    </span>
+                    <span class="text-sm sm:text-base font-extrabold leading-snug">${optText}</span>
+                  </div>
+                  ${rightStatusHTML}
+                </button>
+              `;
+            })
+            .join("");
+
+          const feedbackBoxHTML = isAnswered
+            ? `
+              <div class="mt-3 p-4 rounded-2xl border-3 border-slate-900 shadow-[3px_3px_0px_#0f172a] flex items-center gap-3.5 ${
+                isPassed ? "bg-emerald-200" : "bg-rose-200"
+              }">
+                <div class="w-14 h-14 rounded-2xl bg-white border-2 border-slate-900 flex items-center justify-center shrink-0 p-1 ${
+                  isPassed ? "vehicle-dance" : ""
+                }">
+                  ${getVehicleSVG(stage.vehicleType, "w-12 h-12")}
+                </div>
+                <div class="space-y-0.5">
+                  <div class="text-xs font-black uppercase ${
+                    isPassed ? "text-emerald-900" : "text-rose-900"
+                  }">
+                    ${
+                      isPassed
+                        ? "🎉 NGHIỆM THU ĐẠT CHUẨN KỸ SƯ!"
+                        : `🚨 TÍT TÍT! ĐÁP ÁN ĐÚNG LÀ PHƯƠNG ÁN ${letters[qObj.correctIndex]}`
+                    }
+                  </div>
+                  <p class="text-xs sm:text-sm font-extrabold text-slate-900">
+                    ${qObj.explanation}
+                  </p>
+                </div>
+              </div>
+            `
+            : "";
+
+          return `
+            <div
+              id="question-box-${stage.id}-${qIdx}"
+              class="p-4 sm:p-5 rounded-3xl bg-amber-50/70 border-3 border-slate-900 shadow-[4px_4px_0px_#0f172a] space-y-3.5"
+            >
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full bg-slate-900 text-amber-300 font-mono text-xs font-black uppercase">
+                  ${qObj.code} • NHẬN BIẾT 3 GIÂY
+                </span>
+                <span class="text-xs font-black uppercase ${
+                  isAnswered ? (isPassed ? "text-emerald-600" : "text-rose-600") : "text-slate-500"
+                }">
+                  ${isAnswered ? (isPassed ? "✓ ĐÃ ĐẠT" : "✗ CẦN XEM LẠI") : "⏳ CHỜ TRẢ LỜI"}
+                </span>
+              </div>
+
+              <div class="text-base sm:text-lg font-black text-slate-900 leading-relaxed">
+                ❓ ${qObj.question}
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                ${optionsHTML}
+              </div>
+
+              ${feedbackBoxHTML}
+            </div>
+          `;
+        })
+        .join("");
+
+      const prevStage = CARTOON_SITE_DATA.find((s) => s.lessonNumber === stage.lessonNumber - 1);
+      const nextStage = CARTOON_SITE_DATA.find((s) => s.lessonNumber === stage.lessonNumber + 1);
+
+      return `
+        <div class="space-y-6">
+          <!-- Stage Cartoon Header Banner with Mascot Vehicle -->
+          <section class="rounded-3xl ${stage.bannerBg} cartoon-card overflow-hidden">
+            <div class="h-2.5 w-full hazard-bar border-b-4 border-slate-900"></div>
+            <div class="p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5">
+              <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+                <div class="w-28 h-24 rounded-3xl bg-white border-4 border-slate-900 shadow-[4px_4px_0px_#0f172a] flex items-center justify-center p-2 shrink-0 ${
+                  isAllPassed ? "vehicle-dance" : ""
+                }">
+                  ${getVehicleSVG(stage.vehicleType, "w-24 h-20")}
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <span class="px-3 py-0.5 rounded-full bg-slate-900 text-amber-300 text-xs font-black uppercase">
+                      ${stage.vehicleEmoji} LINH VẬT: ${stage.vehicleName}
+                    </span>
+                    <span class="px-3 py-0.5 rounded-full bg-white border-2 border-slate-900 text-slate-900 text-xs font-black">
+                      ${stage.subtitle}
+                    </span>
+                  </div>
+                  <h2 class="text-xl sm:text-3xl font-black text-slate-900 uppercase mt-1.5">
+                    ${stage.title}
+                  </h2>
+                </div>
+              </div>
+
+              <div class="px-4 py-2.5 rounded-2xl bg-white border-3 border-slate-900 shadow-[3px_3px_0px_#0f172a] text-center shrink-0">
+                <div class="text-[11px] font-black uppercase text-slate-500">Nghiệm thu Bài ${stage.lessonNumber}</div>
+                <div class="text-sm sm:text-base font-black ${
+                  isAllPassed ? "text-emerald-600" : "text-orange-600"
+                }">
+                  Đạt ${stats.correct} / ${stage.questions.length} câu
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =============================================================== -->
+          <!-- KHU VỰC A: SƠ ĐỒ TƯ DUY RÚT GỌN (3 THẺ KHỐI TRỌNG TÂM)         -->
+          <!-- =============================================================== -->
+          <section class="space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-sky-500 text-white font-black text-xs uppercase border-2 border-slate-900">
+                PHẦN 1 • SƠ ĐỒ TƯ DUY RÚT GỌN
+              </span>
+              <h3 class="text-base sm:text-lg font-black text-slate-900 uppercase">
+                3 Thẻ Công thức Cốt lõi (Nhìn 3 giây nhớ ngay)
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              ${blockCardsHTML}
+            </div>
+          </section>
+
+          <!-- =============================================================== -->
+          <!-- KHU VỰC B: 3 CÂU NGHIỆM THU SIÊU DỄ (NHẬN BIẾT 100%)           -->
+          <!-- =============================================================== -->
+          <section class="p-5 sm:p-6 rounded-3xl bg-white cartoon-card space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b-4 border-dashed border-slate-200">
+              <div class="flex items-center gap-2.5">
+                <span class="px-3 py-1 rounded-full bg-orange-500 text-white font-black text-xs uppercase border-2 border-slate-900">
+                  PHẦN 2 • 3 CÂU NHẬN BIẾT SIÊU DỄ
+                </span>
+                <h3 class="text-base sm:text-xl font-black text-slate-900 uppercase">
+                  🚧 Phiếu Nghiệm thu Công trường — Bài ${stage.lessonNumber}
+                </h3>
+              </div>
+
+              <button
+                type="button"
+                onclick="resetStageQuestions('${stage.id}')"
+                class="px-3 py-1.5 rounded-xl bg-amber-200 hover:bg-amber-300 text-slate-900 font-extrabold text-xs uppercase cartoon-btn"
+              >
+                Làm lại 3 câu bài này
+              </button>
+            </div>
+
+            <div class="space-y-5">
+              ${questionsListHTML}
+            </div>
+          </section>
+
+          <!-- Bottom Navigation Buttons -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+            ${
+              prevStage
+                ? `<button
+                     type="button"
+                     onclick="switchView('${prevStage.id}')"
+                     class="px-4 py-2.5 rounded-2xl bg-white hover:bg-amber-200 text-slate-900 font-extrabold text-xs sm:text-sm uppercase cartoon-btn flex items-center gap-2"
+                   >
+                     <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                     <span>Lùi về ${prevStage.shortLabel}</span>
+                   </button>`
+                : `<button
+                     type="button"
+                     onclick="switchView('overview')"
+                     class="px-4 py-2.5 rounded-2xl bg-white hover:bg-amber-200 text-slate-900 font-extrabold text-xs sm:text-sm uppercase cartoon-btn flex items-center gap-2"
+                   >
+                     <i data-lucide="map" class="w-4 h-4"></i>
+                     <span>Về Toàn cảnh Công trường</span>
+                   </button>`
+            }
+
+            ${
+              nextStage
+                ? `<button
+                     type="button"
+                     onclick="switchView('${nextStage.id}')"
+                     class="px-5 py-2.5 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase cartoon-btn flex items-center gap-2"
+                   >
+                     <span>Tiếp tục sang ${nextStage.shortLabel}</span>
+                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                   </button>`
+                : `<button
+                     type="button"
+                     onclick="switchView('overview')"
+                     class="px-5 py-2.5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-xs sm:text-sm uppercase cartoon-btn flex items-center gap-2"
+                   >
+                     <span>🏆 Về Bảng Vinh danh Tổng Công trình</span>
+                     <i data-lucide="award" class="w-4 h-4"></i>
+                   </button>`
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function handleAnswerQuestion(stageId, qIdx, selectedOptionIndex) {
+      const stage = CARTOON_SITE_DATA.find((s) => s.id === stageId);
+      if (!stage) return;
+      const qObj = stage.questions[qIdx];
+      if (!qObj) return;
+
+      const key = `${stageId}-q${qIdx}`;
+      APP_STATE.quizAnswers[key] = selectedOptionIndex;
+      saveState("cartoon_math12_v2_quiz", APP_STATE.quizAnswers);
+
+      const isCorrect = selectedOptionIndex === qObj.correctIndex;
+
+      if (isCorrect) {
+        playCartoonSound("correct");
+        fireCelebrationConfetti();
+        showCartoonToast(
+          `🎉 Nghiệm thu đạt chuẩn kỹ sư! (${qObj.code} Chính xác)`,
+          "bg-emerald-400 text-slate-950"
+        );
+        renderApp();
+      } else {
+        playCartoonSound("wrong");
+        showCartoonToast(
+          `🚨 Tít tít! ${qObj.code} chưa đúng, cả lớp nhìn đáp án viền xanh nhé!`,
+          "bg-rose-500 text-white"
+        );
+        renderApp();
+        const qCard = document.getElementById(`question-box-${stageId}-${qIdx}`);
+        if (qCard) {
+          qCard.classList.remove("animate-shake");
+          void qCard.offsetWidth;
+          qCard.classList.add("animate-shake");
+        }
+      }
+    }
+
+    // =========================================================================
+    // MASTER APP RENDER
+    // =========================================================================
+    function renderApp() {
+      renderPipelineNav();
+      const workspace = document.getElementById("app-workspace");
+      if (!workspace) return;
+
+      if (APP_STATE.activeTab === "overview") {
+        workspace.innerHTML = renderOverviewScreen();
+      } else {
+        const stage = CARTOON_SITE_DATA.find((s) => s.id === APP_STATE.activeTab);
+        if (stage) {
+          workspace.innerHTML = renderStageScreen(stage);
+        }
+      }
+
+      refreshLucide();
+      renderMathFormulas(workspace);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      initAppState();
+      renderApp();
+    });
+  </script>
+</body>
+</html>
